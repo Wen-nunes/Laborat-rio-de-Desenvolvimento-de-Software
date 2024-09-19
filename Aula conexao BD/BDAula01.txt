@@ -1,0 +1,86 @@
+use BDAula01
+Database changed
+mysql>  create table pessoa (
+    -> id int AUTO_INCREMENT PRIMARY KEY,
+    -> nome varchar(50) NOT NULL,
+    -> sexo varchar(1) NOT NULL,
+    -> idioma varchar(10) NOT NULL);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO pessoa (nome, sexo, idioma)
+    -> VALUES
+    -> ("Gerald", "M", "Inglês"),
+    -> ("William", "M", "Inglês"),
+    -> ("Umberto", "M", "Espanhol"),
+    -> ("Jostein", "M", "Alemão"),
+    -> ("Stephen", "M", "Holandês");
+
+
+
+
+
+
+
+
+
+
+
+
+aluno 
+
+ create database escola;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use escola;
+Database changed
+mysql> create table alunos(
+    -> id int AUTO_INCREMENT PRIMARY KEY,
+    -> nome varchar(50) NOT NULL,
+    -> idade int NOT NULL,
+    -> curso varchar(50) NOT NULL);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO alunos (nome, idade, curso)
+    -> VALUES
+    -> ("João", 20, "Matemática"),
+    -> ("Maria", 22, "História"),
+    -> ("Pedro", 21, "Ciência da Computação"),
+    -> ("Ana", 19, "Biologia"),
+    -> ("Carlos", 23, "Economia"),
+    -> ("Wendel", 25, "Sistemas de Informação");
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> create table professores(
+    -> id int AUTO_INCREMENT PRIMARY KEY,
+    -> nome varchar(50) NOT NULL,
+    -> idade int NOT NULL,
+    -> diciplina varchar(50) NOT NULL);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO professores (nome, idade, diciplina)
+    -> VALUES
+    -> ("Ricardo", 46, "Banco de Dados"),
+    -> ("Alexandre", 50, "Estrutura de Dados"),
+    -> ("Ana Paula", 45, "Cálculo");
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> create table Matriculas(
+    -> id int AUTO_INCREMENT PRIMARY KEY,
+    -> id_Aluno int,
+    -> id_Professor int,
+    -> data_matricula date,
+    -> FOREIGN KEY (id_Aluno) REFERENCES alunos (id),
+    -> FOREIGN KEY (id_Professor) REFERENCES professores(id)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO Matriculas (id_Aluno, id_professor, data_matricula)
+    -> VALUES
+    -> (1, 1, "2024-06-15"),
+    -> (2, 1, "2024-06-15"),
+    -> (3, 2, "2024-01-25"),
+    -> (4, 3, "2021-02-28");
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
